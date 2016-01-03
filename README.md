@@ -61,6 +61,7 @@ Your deployables will be located in `./dist/build/`
 Here are some things that are currently not in, but that I will like to add going forward--
  - Write Test Examples
  - Add Code Comments
+ - Add LESS compiling
 
 ## Extra Jazz
 If you decide to incorporate this boilerplate into your project and if you are also on a Microsoft Windows based platform, you may eventually run into a situation where you are unable to delete packages from your `node_modules` directory due to the path length.
