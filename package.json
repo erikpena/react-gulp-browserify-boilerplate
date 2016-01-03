@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Erik Peña <erik.s.pena@gmail.com>",
+  "author": {
+    "name": "Erik Peña",
+    "email": "erik.s.pena@gmail.com",
+    "url": "http://www.erikthe.red/"
+  },
   "license": "ISC",
   "dependencies": {
 
