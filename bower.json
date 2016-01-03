@@ -1,0 +1,24 @@
+{
+  "name": "flux-react-playground",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Erik Peña <erik.s.pena@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "~3.10.1",
+    "react": "~0.14.4",
+    "bootstrap": "~3.3.6"
+  }
+}
