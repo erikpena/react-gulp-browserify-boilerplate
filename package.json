@@ -11,7 +11,7 @@
     "email": "erik.s.pena@gmail.com",
     "url": "http://www.erikthe.red/"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "babel-preset-es2015": "^6.3.13",
