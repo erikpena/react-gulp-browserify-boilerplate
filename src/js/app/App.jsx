@@ -1,21 +1,19 @@
 'use strict';
 
-/*var React = require('react');
-var ReactDOM = require('react-dom');
-var _ = require("lodash");*/
+import Child from './Child.jsx';
 
-var Child = require('./Child.jsx');
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-var App = React.createClass({
-  render: function() {
+  render() {
     return (
       <div>
         <Child first="Erik" last="Pena"/>
       </div>
-    )
+    );
   }
-});
+}
 
 ReactDOM.render(<App />, document.getElementById('app'));
-
-module.exports = App;

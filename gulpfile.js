@@ -2,7 +2,7 @@
 
 var browserify = require('browserify');
 var watchify = require('watchify');
-var reactify = require('reactify');
+var babelify = require('babelify');
 var gulp = require('gulp');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
@@ -45,7 +45,6 @@ gulp.task('production', [ 'copy:build', 'replaceHtml', 'build' ]);
 gulp.task('watch', ['clean:snapshot'], function() {
   var opts = {
     entries: paths.ENTRY,
-    transform: [ reactify ],
     debug: true,
     cache: {}, packageCache: {}, fullPaths: true
   };
@@ -53,10 +52,12 @@ gulp.task('watch', ['clean:snapshot'], function() {
   var watcher = watchify(browserify(opts));
 
   var bundle = function() {
-    return watcher.bundle()
-    .on('error', gutil.log.bind(gutil, 'Browserify Error'))
-    .pipe(source(paths.BUNDLE))
-    .pipe(gulp.dest(paths.DEST_SNAPSHOT));
+    return watcher
+      .transform("babelify", { presets: [ "es2015", "react" ]})
+      .bundle()
+      .on('error', gutil.log.bind(gutil, 'Browserify Error'))
+      .pipe(source(paths.BUNDLE))
+      .pipe(gulp.dest(paths.DEST_SNAPSHOT));
   };
 
   watcher.on('update', function() {
@@ -72,11 +73,11 @@ gulp.task('watch', ['clean:snapshot'], function() {
 
 gulp.task('build', ['clean:build'], function() {
   var opts = {
-    entries: paths.ENTRY,
-    transform: [ reactify ]
+    entries: paths.ENTRY
   };
 
   return browserify(opts)
+    .transform("babelify", { presets: [ "es2015", "react" ]})
     .bundle()
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
     .pipe(source(paths.BUNDLE_MIN))

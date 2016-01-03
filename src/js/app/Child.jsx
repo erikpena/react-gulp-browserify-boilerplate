@@ -1,15 +1,17 @@
 'use strict';
 
-/*var React = require('react');*/
+class Child extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-var Child = React.createClass({
-  render: function(){
+  render() {
     return (
       <div>
         Hello {this.props.first} {this.props.last}
       </div>
     );
   }
-});
+}
 
-module.exports = Child;
+export default Child;
